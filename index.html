@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Web OneDev — Unban WhatsApp</title>
+  <meta name="description" content="Web Hydro - Unban Wa spam/perma" />
+  <style>
+    /* Gaya sederhana agar mirip layout satu halaman */
+    :root{--bg:#0b0b0b;--card:#0f1720;--muted:#9aa4b2;--accent:#06b6d4;color-scheme:dark}
+    html,body{height:100%;margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;background:var(--bg);color:#e6eef6}
+    .container{max-width:820px;margin:36px auto;padding:20px;background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);border-radius:12px;box-shadow:0 6px 24px rgba(0,0,0,0.6)}
+    header{display:flex;align-items:center;justify-content:space-between}
+    .menu{font-size:20px;padding:6px 10px;border-radius:8px;background:rgba(255,255,255,0.02)}
+    h1{margin:12px 0 6px;font-size:24px}
+    h2{margin:8px 0 12px;font-size:18px;color:var(--accent)}
+    p{line-height:1.45;color:#d6e6f2}
+    ul{padding-left:18px}
+    .links a{display:inline-block;margin:6px 8px;color:var(--accent);text-decoration:none}
+    .logo{display:block;margin:18px 0}
+    .card{background:var(--card);padding:14px;border-radius:10px;margin-top:14px}
+    .form-row{display:flex;gap:8px;align-items:center;margin-top:10px}
+    select,input,button,textarea{background:#0b1220;border:1px solid rgba(255,255,255,0.04);color:inherit;padding:10px;border-radius:8px}
+    button{cursor:pointer}
+    .muted{color:var(--muted);font-size:14px}
+    footer{margin-top:18px;font-size:13px;color:var(--muted)}
+    .audio-fallback{margin-top:10px;color:var(--muted)}
+    .progress{margin-top:10px;color:var(--muted)}
+  </style>
+</head>
+<body>
+  <div class="container" role="main">
+    <header>
+      <div class="menu" aria-hidden="true">☰</div>
+      <div class="site-title">Web Hydro</div>
+    </header>
+
+    <h1>## Akses Dikunci</h1>
+
+    <div class="card">
+      <p>
+      </p>
+      <p>
+
+      <div class="progress">0% Loading.. Karya Onedev 100%</div>
+
+      <section style="margin-top:12px">
+        <strong>Contact Admin</strong>
+        <div class="links">
+          <a href="https://wa.me" target="_blank" rel="noopener">WhatsApp</a>
+          <a href="https://t.me" target="_blank" rel="noopener">Telegram</a>
+          <a href="https://instagram.com" target="_blank" rel="noopener">Instagram</a>
+          <a href="https://youtube.com" target="_blank" rel="noopener">YouTube</a>
+        </div>
+
+        <strong style="display:block;margin-top:8px">Info Website Terbaru</strong>
+        <div class="links">
+          <a href="https://whatsapp.com" target="_blank" rel="noopener">WhatsApp Channel</a>
+        </div>
+
+        <strong style="display:block;margin-top:8px">Jasa Pembuatan Web</strong>
+        <div class="links">
+          <a href="https://wa.me" target="_blank" rel="noopener">WhatsApp</a>
+          <a href="https://t.me" target="_blank" rel="noopener">Telegram</a>
+          <a href="https://t.me" target="_blank" rel="noopener">Telegram (lain)</a>
+        </div>
+      </section>
+
+      <img src="https://onedeev.github.io/onedev/logo-robot.png" alt="Logo Robot" class="logo" width="160" onerror="this.style.display='none'">
+    </div>
+
+    <h2>Unban WhatsApp</h2>
+
+    <div class="card" aria-label="Form Unban WhatsApp">
+      <p class="muted">Isi data berikut untuk membuat banding (simulasi antarmuka)</p>
+
+      <div style="margin-top:8px">
+        <label class="muted" for="nomor">Nomor WhatsApp yang diblokir</label><br>
+        <input id="nomor" type="text" placeholder="+62 812-3456-7890" style="width:100%" />
+      </div>
+
+      <div style="margin-top:8px">
+        <label class="muted" for="opsi">Pilih Opsi Banding</label><br>
+        <select id="opsi" style="width:100%">
+          <option>-- Pilih alasan --</option>
+          <option>Opsi Spam</option>
+          <option>Opsi Permanen</option>
+        </select>
+      </div>
+
+      <div class="form-row">
+        <button id="kirim">KIRIM BANDING</button>
+        <button id="batal" type="button">BATAL</button>
+      </div>
+
+      <p class="muted" style="margin-top:10px">
+        Saat tombol ditekan: sistem akan mencoba membuka aplikasi Gmail (Android). Silahkan kirim pesannya lalu tunggu balasan WhatsApp.
+      </p>
+    </div>
+
+    <footer>
+      © Karya Onedev — Semua konten gratis. Dilarang klaim pribadi.
+    </footer>
+  </div>
+
+  <script>
+    // Interaksi sederhana (non-server) untuk simulasi tombol kirim
+    document.getElementById('kirim').addEventListener('click', function(){
+      const nomor = document.getElementById('nomor').value.trim();
+      const opsi = document.getElementById('opsi').value;
+      if(!nomor){
+        alert('SEND NOMOR WA YANG KENON.');
+        return;
+      }
+      // Membuka mailto sebagai simulasi pengiriman banding via Gmail
+      const subject = encodeURIComponent('Banding Unban WhatsApp');
+      const body = encodeURIComponent('Nomor: ' + nomor + '\\nAlasan: ' + opsi + '\\nTolong bantu cek.');
+      window.location.href = 'mailto:support@example.com?subject=' + subject + '&body=' + body;
+    });
+
+    document.getElementById('batal').addEventListener('click', function(){
+      document.getElementById('nomor').value = '';
+      document.getElementById('opsi').selectedIndex = 0;
+    });
+  </script>
+</body>
+</html>
